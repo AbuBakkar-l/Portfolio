@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { lightTheme, darkTheme } from "./theme";
+// import { lightTheme, darkTheme } from "./theme";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import About from "./pages/About";
@@ -16,17 +16,17 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <>
       <CssBaseline />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Router />
       {/* <Home/> */}
-      <Contact/>
       <BlogDetail/>
       <ProjectCard/>
       <Blog/>
       <About/>
+      <Contact/>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }
