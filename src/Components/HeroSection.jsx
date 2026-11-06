@@ -187,7 +187,7 @@ export default function Hero() {
           <Button
             variant="outlined"
             component="a"
-            href="/Abubakar-CV.pdf"
+            href="./Abu_bakkar Resume_.pdf"
             download
             endIcon={
               <span style={{ fontSize: "18px", lineHeight: 1 }}>↓</span>
@@ -225,13 +225,14 @@ export default function Hero() {
               sx={{
                 width: 42,
                 height: 42,
-                backgroundColor: "#E5EDFF",
+                backgroundColor: "#e5e9f1",
                 color: "#0C2E5C",
                 borderRadius: "50%",
                 transition: "0.3s",
                 "&:hover": {
                 //   backgroundColor: "#0061FF",
                 //   color: "#FFFFFF",
+                 backgroundColor: "#E5EDFF",
                   transform: "translateY(-3px)",
                 },
               }}
