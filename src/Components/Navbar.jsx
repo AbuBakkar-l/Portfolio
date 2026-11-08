@@ -38,6 +38,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             gap: 1,
             textDecoration: "none",
             color: "#0C2147",
+              fontFamily: "Inter, sans-serif",
           }}
         >
           <svg width="35" height="35" viewBox="0 0 32 32" fill="none">
@@ -52,10 +53,11 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
           <Typography
             sx={{
-              fontSize: "15px",
+              fontSize: "16px",
               fontWeight: 800,
               letterSpacing: "0.3px",
               color: "#0C2147",
+                fontFamily: "Inter, sans-serif",
             }}
           >
             ABUBAKAR.DEV
@@ -78,7 +80,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
               sx={{
                 textDecoration: "none",
                 color: "#0C2147",
-                fontSize: "13px",
+                fontSize: "14px",
+                fontFamily: "Inter, sans-serif",
                 fontWeight: 600,
                 py: 1,
                 borderBottom: "2px solid transparent",

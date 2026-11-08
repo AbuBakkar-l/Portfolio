@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography, Button, Stack, Chip } from "@mui/material";
+import { Box, Container, Typography, Button } from "@mui/material";
 
 import aboutImage from "../Assets/img/about-us.png";
 
@@ -55,7 +55,7 @@ const About = () => {
         letterSpacing: "0.5px",
       }}
     >
-      01 / ABOUT ME
+      01 / About Me
     </Typography>
   </Box>
 
