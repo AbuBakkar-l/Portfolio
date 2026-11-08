@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Typography, Button } from "@mui/material";
 
 import aboutImage from "../Assets/img/about-us.png";
+import experienceImage from "../Assets/img/aboutexper.png";
 
 const About = () => {
   return (
@@ -20,6 +21,9 @@ const About = () => {
             justifyContent: "space-between",
             gap: { xs: 5, md: 8 },
             flexDirection: { xs: "column", md: "row" },
+            backgroundColor: '#EFF5FF',
+            borderRadius: '20px',
+            p: { xs: 2, md: 3 },
           }}
         >
           {/* LEFT SIDE - TEXT */}
@@ -210,39 +214,73 @@ const About = () => {
 </Box>
 
 
-          {/* RIGHT SIDE - IMAGE */}
-          <Box
-            sx={{
-              flex: 1,
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Box
-              sx={{
-                width: "100%",
-                maxWidth: 430,
-                position: "relative",
-                borderRadius: 5,
-                overflow: "hidden",
-                boxShadow: "0 15px 45px rgba(0, 100, 255, 0.15)",
-                "& img": {
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                  objectFit: "cover",
-                },
-              }}
-            >
-              <Box
-                component="img"
-                src={aboutImage}
-                alt="Professional portrait"
-              />
-            </Box>
-          </Box>
+
+{/* RIGHT SIDE - TWO IMAGES */}
+<Box
+  sx={{
+    flex: 1,
+    width: "100%",
+    minHeight: { xs: "auto", md: 480 },
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+    py: { xs: 2, md: 3 },
+  }}
+>
+  {/* Main Profile Image */}
+  <Box
+    sx={{
+      width: { xs: "85%", sm: "75%", md: "78%" },
+      maxWidth: 370,
+      position: "relative",
+      zIndex: 1,
+      borderRadius: 4,
+      overflow: "hidden",
+      boxShadow: "0 15px 40px rgba(0, 65, 160, 0.15)",
+      "& img": {
+        width: "100%",
+        height: "auto",
+        display: "block",
+      },
+    }}
+  >
+    <Box
+      component="img"
+      src={aboutImage}
+      alt="Professional portrait"
+    />
+  </Box>
+
+  {/* Experience Image */}
+  <Box
+    sx={{
+      position: "absolute",
+      width: { xs: 125, sm: 155, md: 180 },
+      right: { xs: 0, sm: 0, md: -5 },
+      bottom: { xs: 5, md: 20 },
+      zIndex: 2,
+      borderRadius: 3,
+      overflow: "hidden",
+      border: "5px solid #EFF5FF",
+      backgroundColor: "#FFFFFF",
+      boxShadow: "0 10px 30px rgba(0, 65, 160, 0.18)",
+      "& img": {
+        width: "100%",
+        height: "auto",
+        display: "block",
+        objectFit: "cover",
+      },
+    }}
+  >
+    <Box
+      component="img"
+      src={experienceImage}
+      alt="Professional experience"
+    />
+  </Box>
+</Box>
+
         </Box>
       </Container>
     </Box>
