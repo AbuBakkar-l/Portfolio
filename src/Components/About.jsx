@@ -23,100 +23,192 @@ const About = () => {
           }}
         >
           {/* LEFT SIDE - TEXT */}
-          <Box sx={{ flex: 1 }}>
-            <Typography
-              variant="overline"
-              sx={{
-                color: "primary.main",
-                fontWeight: 700,
-                letterSpacing: 2,
-              }}
-            >
-              GET TO KNOW ME
-            </Typography>
+          
+<Box
+  sx={{
+    flex: 1,
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  }}
+>
+  {/* Welcome Badge */}
+  <Box
+    sx={{
+      display: "inline-flex",
+      alignItems: "center",
+      background: "linear-gradient(135deg, #F4F8FF 0%, #DCE9FF 100%)",
+      border: "1px solid #DCE8FF",
+      borderRadius: "100px",
+      px: 2,
+      py: 0.8,
+      mb: 2.5,
+    }}
+  >
+    <Typography
+      sx={{
+        color: "#0C2147",
+        fontSize: "11px",
+        fontFamily: "Inter, sans-serif",
+        fontWeight: 600,
+        letterSpacing: "0.5px",
+      }}
+    >
+      01 / ABOUT ME
+    </Typography>
+  </Box>
 
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 800,
-                mt: 1,
-                mb: 3,
-                fontSize: { xs: "2rem", md: "2.8rem" },
-              }}
-            >
-              About{" "}
-              <Box component="span" color="primary.main">
-                Me
-              </Box>
-            </Typography>
+  {/* Main Heading */}
+  <Typography
+    component="h1"
+    sx={{
+      color: "#0C2147",
+      fontSize: {
+        xs: "36px",
+        sm: "44px",
+        md: "48px",
+        lg: "52px",
+      },
+      fontWeight: 800,
+      fontFamily: "Inter, sans-serif",
+      lineHeight: 1.2,
+      letterSpacing: "-1.5px",
+      mb: 2,
+    }}
+  >
+    More than just
+    <br />
+    <Box component="span" sx={{ color: "#0061FF" }}>
+      writing code.
+    </Box>
+  </Typography>
 
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 600,
-                mb: 2,
-                lineHeight: 1.6,
-              }}
-            >
-              Hi, I'm a Web Developer passionate about building modern digital
-              experiences.
-            </Typography>
+  {/* Description */}
+  <Typography
+    sx={{
+      color: "#52627A",
+      fontSize: { xs: "14px", md: "15px" },
+      fontWeight: 400,
+      fontFamily: "Inter, sans-serif",
+      lineHeight: 1.9,
+      maxWidth: "480px",
+      color: "#0C2147",
+      mb: 2.5,
+    }}
+  >
+    I'm a passionate Frontend Developer with 2+ years of
+    experience in web development. I enjoy transforming
+    ideas into beautiful, responsive, and functional web
+    applications that deliver meaningful user experiences.
+  </Typography>
 
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ lineHeight: 1.9, mb: 2 }}
-            >
-              I am a Computer Science graduate with over 2 years of experience
-              in web development. I enjoy creating responsive, user-friendly
-              websites and turning ideas into functional digital products.
-            </Typography>
+  {/* Professional Highlights */}
+  <Box
+    sx={{
+      display: "flex",
+      flexDirection: "column",
+      gap: 0.8,
+      mb: 3.5,
+    }}
+  >
+    {[
+      "BSCS Graduate",
+      "2+ Years of Web Development Experience",
+      "AI & Machine Learning Enthusiast",
+    ].map((item) => (
+      <Box
+        key={item}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1.5,
+          py: 0.5,
+        }}
+      >
+      <Box>
 
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ lineHeight: 1.9, mb: 3 }}
-            >
-              Alongside web development, I am exploring Artificial Intelligence
-              and Machine Learning to expand my technical skills and build
-              smarter applications.
-            </Typography>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="17"
+  height="17"
+  viewBox="0 0 13 13"
+  fill="none"
+  style={{
+    width: "17px",
+    height: "17px",
+    minWidth: "17px",
+    minHeight: "17px",
+    flexShrink: 0,
+    display: "block",
+  }}
+>
+  <path
+    d="M4.58 6.33L5.75 7.5L8.08 5.17M12.17 6.33C12.17 9.56 9.56 12.17 6.33 12.17C3.11 12.17 0.5 9.56 0.5 6.33C0.5 3.11 3.11 0.5 6.33 0.5C9.56 0.5 12.17 3.11 12.17 6.33Z"
+    stroke="#0061FF"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
 
-            <Stack
-              direction="row"
-              spacing={1}
-              flexWrap="wrap"
-              useFlexGap
-              sx={{ mb: 4 }}
-            >
-              <Chip label="React.js" color="primary" variant="outlined" />
-              <Chip label="Material UI" color="primary" variant="outlined" />
-              <Chip label="JavaScript" color="primary" variant="outlined" />
-              <Chip label="Python" color="primary" variant="outlined" />
-              <Chip label="AI & ML" color="primary" variant="outlined" />
-            </Stack>
+      </Box>
 
-            <Button
-              variant="contained"
-              size="large"
-              href="#contact"
-              sx={{
-                px: 4,
-                py: 1.4,
-                borderRadius: 2,
-                textTransform: "none",
-                fontWeight: 700,
-                boxShadow: 3,
-                "&:hover": {
-                  transform: "translateY(-3px)",
-                  boxShadow: 5,
-                },
-                transition: "0.3s",
-              }}
-            >
-              Let's Connect
-            </Button>
-          </Box>
+        <Typography
+          sx={{
+            color: "#0C2147",
+            fontSize: { xs: "13px", sm: "14px", md: "15px" },
+            fontWeight: 500,
+            fontFamily: "Inter, sans-serif",
+            lineHeight: 1.6,
+          }}
+        >
+          {item}
+        </Typography>
+      </Box>
+    ))}
+  </Box>
+
+  {/* Learn More Button */}
+  <Box
+    sx={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 2,
+    }}
+  >
+    <Button
+      variant="outlined"
+      component="a"
+      href="#contact"
+      endIcon={
+        <Box component="span" sx={{ fontSize: "19px", lineHeight: 1 }}>
+          →
+        </Box>
+      }
+      sx={{
+        color: "#0061FF",
+        borderColor: "#0061FF",
+        borderRadius: "100px",
+        px: 3.5,
+        py: 1.3,
+        fontFamily: "Inter, sans-serif",
+        fontSize: "13px",
+        fontWeight: 600,
+        textTransform: "none",
+        transition: "all 0.3s ease",
+        "&:hover": {
+          borderColor: "#004ECC",
+          backgroundColor: "#EAF1FF",
+          transform: "translateY(-2px)",
+        },
+      }}
+    >
+      Learn More
+    </Button>
+  </Box>
+</Box>
+
 
           {/* RIGHT SIDE - IMAGE */}
           <Box
