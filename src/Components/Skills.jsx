@@ -1,11 +1,5 @@
-﻿
-import React, { useState } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-} from "@mui/material";
+﻿import React, { useState } from "react";
+import { Box, Container, Typography, Button } from "@mui/material";
 
 import { FiArrowRight, FiCode } from "react-icons/fi";
 
@@ -53,7 +47,6 @@ const Skills = () => {
       }}
     >
       <Container maxWidth="lg">
-
         {/* Top Header */}
         <Box
           sx={{
@@ -89,22 +82,20 @@ const Skills = () => {
             onClick={() => setShowAll(!showAll)}
             endIcon={<FiArrowRight />}
             sx={{
-             
-        color: "#0061FF",
-        borderColor: "#0061FF",
-        borderRadius: "100px",
-        px: 3.5,
-        py: 1.3,
-        fontFamily: "Inter, sans-serif",
-        fontSize: "13px",
-        fontWeight: 600,
-        textTransform: "none",
-        transition: "all 0.3s ease",
-        "&:hover": {
-          borderColor: "#004ECC",
-          backgroundColor: "#EAF1FF",
-          transform: "translateY(-2px)",
-        
+              color: "#0061FF",
+              borderColor: "#0061FF",
+              borderRadius: "100px",
+              px: 3.5,
+              py: 1,
+              fontFamily: "Inter, sans-serif",
+              fontSize: "13px",
+              fontWeight: 600,
+              textTransform: "none",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                borderColor: "#004ECC",
+                backgroundColor: "#EAF1FF",
+                transform: "translateY(-2px)",
               },
             }}
           >
@@ -129,7 +120,10 @@ const Skills = () => {
               mb: 1.5,
             }}
           >
-            Technologies I work with.
+            <Box component="span" sx={{ color: "#000000" }}>
+              Technologies
+            </Box>{" "}
+            I work with.
           </Typography>
 
           <Typography
@@ -142,23 +136,22 @@ const Skills = () => {
               maxWidth: "520px",
             }}
           >
-            Tools and technologies I use to bring digital
-            ideas to life.
+            Tools and technologies I use to bring digital ideas to life.
           </Typography>
         </Box>
 
         {/* Skills Grid */}
         <Box
-         sx={{
+          sx={{
             display: "grid",
             gridTemplateColumns: {
-            xs: "repeat(2, 1fr)",
-            sm: "repeat(4, 1fr)",
-            md: "repeat(6, 1fr)",
+              xs: "repeat(2, 1fr)",
+              sm: "repeat(4, 1fr)",
+              md: "repeat(6, 1fr)",
             },
             gap: { xs: 1.5, md: 2 },
-            cursor:"pointer",
-        }}
+            cursor: "pointer",
+          }}
         >
           {visibleSkills.map((skill) => (
             <Box
@@ -173,15 +166,13 @@ const Skills = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 1.5,
-                boxShadow:
-                  "0px 3px 12px rgba(12, 33, 71, 0.06)",
+                boxShadow: "0px 3px 12px rgba(12, 33, 71, 0.06)",
                 border: "1px solid rgba(0, 97, 255, 0.05)",
                 transition: "all 0.3s ease",
 
                 "&:hover": {
                   transform: "translateY(-6px)",
-                  boxShadow:
-                    "0px 10px 25px rgba(0, 97, 255, 0.12)",
+                  boxShadow: "0px 10px 25px rgba(0, 97, 255, 0.12)",
                   backgroundColor: "#fbfdff",
                 },
               }}
@@ -212,7 +203,6 @@ const Skills = () => {
             </Box>
           ))}
         </Box>
-
       </Container>
     </Box>
   );
