@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Box, Typography, Button, IconButton } from "@mui/material";
 
@@ -59,7 +58,7 @@ export default function Hero() {
         px: { xs: 3, sm: 5, md: 10 },
         py: { xs: 7, md: 5 },
         gap: 5,
-        background: "#F4F8FF",
+        // background: "#F4F8FF",
         flexDirection: { xs: "column", md: "row" },
         overflow: "hidden",
       }}
