@@ -140,7 +140,7 @@ const Projects = () => {
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",
-            lg: "repeat(2, minmax(0, 478px))",
+            lg: "repeat(2, minmax(0, 560px))",
           },
           justifyContent: "center",
           gap: 2,
@@ -281,6 +281,7 @@ const Projects = () => {
                   fontSize: "11px",
                   fontWeight: 600,
                   textTransform: "none",
+
 
                 //   "& .MuiButton-endIcon": {
                 //     ml: 0.5,
