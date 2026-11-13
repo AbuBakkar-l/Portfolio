@@ -5,7 +5,7 @@ import About from "../Components/About";
 import Skills from "../Components/Skills";
 import Projects from "../Components/Project";
 import Articles from "../Components/Artical";
-
+import Contact from "../Components/Contact";
 export default function Home() {
   return (
     <>
@@ -14,6 +14,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Articles />
+      <Contact />
     </> 
   );
 }
