@@ -1,12 +1,5 @@
-
 import React from "react";
-import {
-  Box,
-  Typography,
-  IconButton,
-  Container,
-} from "@mui/material";
-
+import { Box, Typography, IconButton, Container } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -36,7 +29,6 @@ export default function Footer() {
             gap: 3,
           }}
         >
-
           {/* LEFT - LOGO */}
           <Box
             sx={{
@@ -82,7 +74,6 @@ export default function Footer() {
               gap: 1.5,
             }}
           >
-
             {/* GitHub */}
             <IconButton
               component="a"
@@ -112,7 +103,7 @@ export default function Footer() {
                 color: "#FFFFFF",
                 backgroundColor: "#1B2A40",
                 "&:hover": {
-                  backgroundColor: "#1b2a40"
+                  backgroundColor: "#1b2a40",
                 },
               }}
             >
@@ -130,13 +121,12 @@ export default function Footer() {
                 color: "#FFFFFF",
                 backgroundColor: "#1B2A40",
                 "&:hover": {
-                  backgroundColor: "#1b2a40"
+                  backgroundColor: "#1b2a40",
                 },
               }}
             >
               <XIcon />
             </IconButton>
-
           </Box>
         </Box>
       </Container>
