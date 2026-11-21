@@ -1,13 +1,26 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Box, IconButton } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
-export default function Navbar({ darkMode, setDarkMode }) {
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Blog", href: "#blog" },
+    { name: "Blog", href: "#articles" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -60,7 +73,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 fontFamily: "Inter, sans-serif",
             }}
           >
-            ABUBAKAR.DEV
+            ABUBAKKAR.DEV
           </Typography>
         </Box>
 
@@ -98,48 +111,62 @@ export default function Navbar({ darkMode, setDarkMode }) {
           ))}
         </Box>
 
-        {/* Theme Toggle */}
+        {/* Mobile Menu Button */}
         <IconButton
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
           sx={{
+            display: { xs: "inline-flex", md: "none" },
             color: "#0061FF",
             backgroundColor: "#EEF4FF",
             width: 38,
             height: 38,
-            "&:hover": {
-              backgroundColor: "#DCE9FF",
-            },
+            "&:hover": { backgroundColor: "#DCE9FF" },
           }}
         >
-          {darkMode ? (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <circle
-                cx="12"
-                cy="12"
-                r="4"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <path
-                d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          ) : (
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          )}
+          <MenuIcon />
         </IconButton>
       </Toolbar>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        PaperProps={{ sx: { width: 240, backgroundColor: "#FFFFFF" } }}
+      >
+        <Box sx={{ display: "flex", justifyContent: "flex-end", p: 1.5 }}>
+          <IconButton
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+            sx={{ color: "#0C2147" }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <List>
+          {navLinks.map((link) => (
+            <ListItemButton
+              key={link.name}
+              component="a"
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+            >
+              <ListItemText
+                primary={link.name}
+                primaryTypographyProps={{
+                  sx: {
+                    color: "#0C2147",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "15px",
+                  },
+                }}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Drawer>
     </AppBar>
   );
 }

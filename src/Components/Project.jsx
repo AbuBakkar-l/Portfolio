@@ -1,15 +1,5 @@
-
 import React from "react";
-
-import {
-  Box,
-  Typography,
-  Button,
-  Card,
-  Chip,
-  Stack,
-} from "@mui/material";
-
+import { Box, Typography, Button, Card, Chip, Stack } from "@mui/material";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 
 import project1 from "../Assets/img/project1.png";
@@ -63,19 +53,16 @@ const Projects = () => {
             px: 2.5,
             py: 1,
             borderRadius: "30px",
-    
-
           }}
         >
           <Typography
             sx={{
-            color: "#0C2147",
+              color: "#0C2147",
               fontSize: "11px",
               fontWeight: 600,
-              
             }}
           >
-            0/3 My Projects
+            03 / My Projects
           </Typography>
         </Box>
 
@@ -83,6 +70,10 @@ const Projects = () => {
 
         <Button
           variant="outlined"
+          component="a"
+          href="https://github.com/AbuBakkar-l?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
           endIcon={<NorthEastIcon />}
           sx={{
             color: "#0061FF",
@@ -112,10 +103,7 @@ const Projects = () => {
           }}
         >
           Things I've{" "}
-          <Box
-            component="span"
-            sx={{ color: "#0061FF" }}
-          >
+          <Box component="span" sx={{ color: "#0061FF" }}>
             built.
           </Box>
         </Typography>
@@ -166,8 +154,7 @@ const Projects = () => {
               transition: "0.3s ease",
 
               "&:hover": {
-                boxShadow:
-                  "0 8px 20px rgba(0,97,255,0.10)",
+                boxShadow: "0 8px 20px rgba(0,97,255,0.10)",
                 transform: "translateY(-3px)",
                 cursor: "pointer",
               },
@@ -208,7 +195,7 @@ const Projects = () => {
               <Typography
                 sx={{
                   fontSize: "13px",
-                  fontWeight: '800',
+                  fontWeight: "800",
                   color: "#0C2147",
                   mb: 0.5,
                   lineHeight: 1.3,
@@ -222,13 +209,13 @@ const Projects = () => {
               <Typography
                 sx={{
                   fontSize: "11.5px",
-                  fontfamily: "Inter",
+                  fontFamily: "Inter, sans-serif",
                   color: "#0C2147",
                   lineHeight: 1.4,
                   mb: 1.5,
                   mt: 1,
                   display: "-webkit-box",
-                  WebkitLineClamp: 2,   
+                  WebkitLineClamp: 2,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
                 }}
@@ -238,12 +225,7 @@ const Projects = () => {
 
               {/* Technology Chips */}
 
-              <Stack
-                direction="row"
-                flexWrap="wrap"
-                gap={0.5}
-                sx={{ mb: 1 }}
-              >
+              <Stack direction="row" flexWrap="wrap" gap={0.5} sx={{ mb: 1 }}>
                 {project.technologies.map((tech) => (
                   <Chip
                     key={tech}
@@ -255,7 +237,7 @@ const Projects = () => {
                       color: "#0C2147",
                       fontSize: "11.5px",
                       borderRadius: "100px",
-                      fontfamily: "Inter",
+                      fontFamily: "Inter, sans-serif",
                       py: 1.5,
                       px: 0.8,
 
@@ -282,11 +264,10 @@ const Projects = () => {
                   fontWeight: 600,
                   textTransform: "none",
 
-
-                //   "& .MuiButton-endIcon": {
-                //     ml: 0.5,
-                //     mr: 0,
-                //   },
+                  //   "& .MuiButton-endIcon": {
+                  //     ml: 0.5,
+                  //     mr: 0,
+                  //   },
                 }}
               >
                 View Project

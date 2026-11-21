@@ -8,7 +8,7 @@ export default function Hero() {
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/",
+      url: "https://github.com/AbuBakkar-l",
       icon: (
         <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor">
           <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.8 2.23 3.02 1.69.1-.72.39-1.22.7-1.5-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
@@ -17,7 +17,7 @@ export default function Hero() {
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/",
+      url: "https://www.linkedin.com/in/abu-bakkar121/",
       icon: (
         <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor">
           <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.45H4.96V9h2.97v9.45ZM6.44 7.71a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.01 10.74h-2.97v-4.6c0-1.1-.02-2.51-1.53-2.51-1.54 0-1.78 1.2-1.78 2.43v4.68H9.2V9h2.85v1.29h.04c.4-.74 1.37-1.53 2.82-1.53 3.01 0 3.57 1.98 3.57 4.55v5.14Z" />
@@ -26,21 +26,11 @@ export default function Hero() {
     },
     {
       name: "Email",
-      url: "mailto:your-email@example.com",
+      url: "mailto:amabubakar121@gmail.com",
       icon: (
         <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="5" width="18" height="14" rx="2" />
           <path d="m3 7 9 6 9-6" />
-        </svg>
-      ),
-    },
-    {
-      name: "Website",
-      url: "https://your-website.com",
-      icon: (
-        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
         </svg>
       ),
     },
@@ -113,7 +103,7 @@ export default function Hero() {
         >
           Hi, I'm{" "}
           <Box component="span" sx={{ color: "#0061FF" }}>
-            Abubakar
+            Abu Bakkar
           </Box>
         </Typography>
 
@@ -128,6 +118,19 @@ export default function Hero() {
           }}
         >
           Frontend Developer
+        </Typography>
+
+        {/* Current Role */}
+        <Typography
+          sx={{
+            color: "#0061FF",
+            fontSize: "14px",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+            mb: 1.5,
+          }}
+        >
+          Software Engineer Intern at RMI
         </Typography>
 
         {/* Description */}
@@ -186,8 +189,8 @@ export default function Hero() {
           <Button
             variant="outlined"
             component="a"
-            href="./Abu_bakkar Resume_.pdf"
-            download
+            href="/Abu_Bakkar_CV.pdf"
+            download="Abu_Bakkar_CV.pdf"
             endIcon={
               <span style={{ fontSize: "18px", lineHeight: 1 }}>↓</span>
             }
@@ -255,7 +258,7 @@ export default function Hero() {
         <Box
           component="img"
           src={profileImg}
-          alt="Abubakar - Frontend Developer"
+          alt="Abu Bakkar - Frontend Developer"
           sx={{
             width: "100%",
             maxWidth: "430px",

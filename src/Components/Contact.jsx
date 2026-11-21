@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Box,
@@ -9,14 +8,20 @@ import {
   Button,
   Stack,
   IconButton,
+  Alert,
 } from "@mui/material";
 
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-// import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
-const Contact = () => {
+// Paste your Formspree endpoint here (https://formspree.io/f/xxxxxxxx) so the
+// form sends straight to your inbox. While empty, the form opens the visitor's
+// email app instead.
+const FORM_ENDPOINT = "https://formspree.io/f/mgaklglv";
 
+const Contact = () => {
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
   // Common input styling
   const inputStyle = {
     "& .MuiOutlinedInput-root": {
@@ -64,33 +69,46 @@ const Contact = () => {
   };
 
   // Form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
-    const data = new FormData(e.currentTarget);
+    if (!FORM_ENDPOINT) {
+      const name = data.get("name");
+      const email = data.get("email");
+      const message = data.get("message");
+      const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      );
+      window.location.href = `mailto:amabubakar121@gmail.com?subject=${subject}&body=${body}`;
+      return;
+    }
 
-    const name = data.get("name");
-    const email = data.get("email");
-    const message = data.get("message");
-
-    const subject = encodeURIComponent(
-      `Portfolio Contact from ${name}`
-    );
-
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-
-    window.location.href =
-      `mailto:amabubakar121@gmail.com?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        form.reset();
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
     <Box
       id="contact"
       sx={{
-        background:
-          "linear-gradient(135deg, #0671F0 0%, #8EBCFF 50%, #3F8FF4 100%)",
+        background:"linear-gradient(#065cefe2)",
         borderTopLeftRadius: "100px",
         borderTopRightRadius: "100px",
         py: { xs: 2, md: 3 },
@@ -101,19 +119,17 @@ const Contact = () => {
       }}
     >
       <Container maxWidth="lg">
-
         {/* CONTACT BADGE */}
         <Box
           sx={{
             display: "inline-flex",
             alignItems: "center",
-            backgroundColor: "#FFFFFF",
+            background: "linear-gradient(#F4F8FF 0%, #C1D8FF 50%, #F2F7FF 100%)",
             color: "#0C2147",
             borderRadius: "30px",
             px: 2.5,
             py: 1,
-            mb: 5,
-
+            mb: 2, 
             fontSize: "11px",
             fontWeight: 700,
             fontFamily: "Inter, sans-serif",
@@ -136,10 +152,8 @@ const Contact = () => {
             alignItems: "center",
           }}
         >
-
           {/* LEFT SIDE - CONTACT DETAILS */}
           <Box>
-
             {/* Heading */}
             <Typography
               sx={{
@@ -165,30 +179,24 @@ const Contact = () => {
                 fontFamily: "Inter, sans-serif",
                 lineHeight: 1.8,
                 maxWidth: "420px",
-                mb: 1.5 ,
+                mb: 1.5,
               }}
             >
-              Feel free to reach out for collaboration,
-              opportunities or just a friendly hello.
+              Feel free to reach out for collaboration, opportunities or just a
+              friendly hello.
             </Typography>
 
-            {/* Email Details */}
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={2}
-              sx={{ mb: 4 }}
-            >
-              <IconButton
-                component="a"
-                href="mailto:amabubakar121@gmail.com"
-                sx={socialStyle}
-                aria-label="Send email"
-              >
-                <EmailOutlinedIcon />
-              </IconButton>
-
-              <Box>
+            {/* Contact Details */}
+            <Stack spacing={1.5} sx={{ mb: 4 }}>
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <IconButton
+                  component="a"
+                  href="mailto:amabubakar121@gmail.com"
+                  sx={socialStyle}
+                  aria-label="Send email"
+                >
+                  <EmailOutlinedIcon />
+                </IconButton>
                 <Typography
                   component="a"
                   href="mailto:amabubakar121@gmail.com"
@@ -196,17 +204,40 @@ const Contact = () => {
                     color: "#FFFFFF",
                     fontSize: "13px",
                     textDecoration: "none",
-                    "&:hover": {
-                      textDecoration: "underline",
-                    },
+                    "&:hover": { textDecoration: "underline" },
                   }}
                 >
                   amabubakar121@gmail.com
                 </Typography>
-                
-              </Box>
-            </Stack>
+              </Stack>
 
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <IconButton
+                  component="a"
+                  href="https://www.linkedin.com/in/abu-bakkar121/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={socialStyle}
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <Typography
+                  component="a"
+                  href="https://www.linkedin.com/in/abu-bakkar121/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: "#FFFFFF",
+                    fontSize: "13px",
+                    textDecoration: "none",
+                    "&:hover": { textDecoration: "underline" },
+                  }}
+                >
+                  linkedin.com/in/abu-bakkar121
+                </Typography>
+              </Stack>
+            </Stack>
           </Box>
 
           {/* RIGHT SIDE - CONTACT FORM */}
@@ -219,9 +250,9 @@ const Contact = () => {
               gap: 2.5,
               width: "100%",
               minWidth: 0,
+              mt: 1, 
             }}
           >
-
             {/* NAME + EMAIL - ALWAYS ONE LINE */}
             <Box
               sx={{
@@ -264,33 +295,40 @@ const Contact = () => {
             <Button
               type="submit"
               variant="contained"
+              disabled={status === "sending"}
               endIcon={<SendRoundedIcon />}
               sx={{
                 backgroundColor: "#0671F0",
                 color: "#FFFFFF",
-
                 fontSize: "12px",
                 fontWeight: 700,
                 fontFamily: "Inter, sans-serif",
-
                 textTransform: "none",
                 py: 1,
                 width: "100%",
                 borderRadius: "10px",
-
                 boxShadow: "none",
                 transition: "all 0.3s ease",
-
                 "&:hover": {
                   boxShadow: "none",
                 },
               }}
             >
-              Send Message
+              {status === "sending" ? "Sending..." : "Send Message"}
             </Button>
 
+            {status === "success" && (
+              <Alert severity="success">
+                Thanks! Your message was sent. I'll reply soon.
+              </Alert>
+            )}
+            {status === "error" && (
+              <Alert severity="error">
+                Couldn't send your message. Please email me at
+                amabubakar121@gmail.com instead.
+              </Alert>
+            )}
           </Box>
-
         </Box>
       </Container>
     </Box>

@@ -65,7 +65,7 @@ const About = () => {
 
             {/* Main Heading */}
             <Typography
-              component="h1"
+              component="h2"
               sx={{
                 color: "#0C2147",
                 fontSize: {
@@ -116,6 +116,7 @@ const About = () => {
               }}
             >
               {[
+                "Software Engineer Intern at RMI",
                 "BSCS Graduate",
                 "2+ Years of Web Development Experience",
                 "AI & Machine Learning Enthusiast",
