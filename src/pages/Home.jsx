@@ -107,6 +107,7 @@ const SOCIAL = [
 ];
 
 const keyframes = `
+  *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; background: ${BG}; }
   @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
   @keyframes letterUp { from { opacity: 0; transform: translateY(70%) rotate(6deg); } to { opacity: 1; transform: none; } }
@@ -347,10 +348,9 @@ const PANELS = {
             height: 150,
             borderRadius: "24px",
             border: LINE,
-            backgroundColor: "#0d1220",
-            backgroundImage: `url(${profileImg})`,
-            backgroundSize: "220%",
-            backgroundPosition: "52% 0%",
+            backgroundImage: `url(${profileImg}), linear-gradient(135deg, #1d4ed8 0%, #0d1220 75%)`,
+            backgroundSize: "220%, cover",
+            backgroundPosition: "53% 8%, center",
             backgroundRepeat: "no-repeat",
           }}
         />
@@ -609,7 +609,7 @@ const Home = () => {
           pb: 6,
         }}
       >
-        <Box>
+        <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
           <Rise i={0}>
             <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1, px: 2, py: 0.8, borderRadius: "100px", border: LINE, background: GLASS, fontSize: "12px", color: MUTED, mb: 2.5 }}>
               <Box sx={{ width: 8, height: 8, borderRadius: "50%", background: CYAN, animation: "pulse 1.8s infinite" }} />
@@ -622,7 +622,7 @@ const Home = () => {
             component="h1"
             aria-label="Abu Bakkar"
             sx={{
-              fontSize: "clamp(52px, 9vw, 112px)",
+              fontSize: "clamp(51px, 7vw, 112px)",
               fontWeight: 800,
               lineHeight: 1.02,
               letterSpacing: "-3px",
@@ -655,13 +655,13 @@ const Home = () => {
           </Rise>
 
           <Rise i={7}>
-            <Typography sx={{ color: MUTED, lineHeight: 1.9, maxWidth: 500, mb: 3.5 }}>
+            <Typography sx={{ color: MUTED, lineHeight: 1.9, maxWidth: 500, mx: { xs: "auto", md: 0 }, mb: 3.5 }}>
               I build modern, responsive and user-friendly web applications using
               React, MUI and more.
             </Typography>
           </Rise>
 
-          <Rise i={8} sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 4 }}>
+          <Rise i={8} sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 4, justifyContent: { xs: "center", md: "flex-start" } }}>
             <Button
               onClick={() => open("projects")}
               endIcon={<NorthEastIcon />}
@@ -679,7 +679,7 @@ const Home = () => {
             </Button>
           </Rise>
 
-          <Rise i={9} sx={{ display: "flex", gap: 1.5 }}>
+          <Rise i={9} sx={{ display: "flex", gap: 1.5, justifyContent: { xs: "center", md: "flex-start" } }}>
             {SOCIAL.map((s) => (
               <IconButton
                 key={s.name}
@@ -711,7 +711,7 @@ const Home = () => {
                 borderRadius: "50%",
                 background: GRADIENT,
                 filter: "blur(60px)",
-                opacity: 0.45,
+                opacity: 0.6,
                 animation: "spin 12s linear infinite",
               },
             }}
